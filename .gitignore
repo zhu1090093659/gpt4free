@@ -11,4 +11,5 @@ pyvenv.cfg
 lib64
 /.idea
 container/
-g4f.devbuild/
+g4f.dev
+build/
