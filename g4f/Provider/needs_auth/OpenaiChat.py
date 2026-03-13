@@ -447,6 +447,11 @@ class OpenaiChat(AsyncAuthedProvider, ProviderModelMixin):
             while conversation.finish_reason is None:
                 conduit_token = None
                 if cls._api_key is not None:
+                    _hints = []
+                    if image_model:
+                        _hints.append("picture_v2")
+                    if web_search:
+                        _hints.append("search")
                     data = {
                         "action": "next",
                         "fork_from_shared_post": False,
@@ -455,9 +460,7 @@ class OpenaiChat(AsyncAuthedProvider, ProviderModelMixin):
                         "timezone_offset_min": -120,
                         "timezone": "Europe/Berlin",
                         "conversation_mode": {"kind": "primary_assistant"},
-                        "system_hints": [
-                            "picture_v2"
-                        ] if image_model else [],
+                        "system_hints": _hints if _hints else [],
                         "thinking_effort": "extended" if reasoning_effort == "high" else "standard",
                         "supports_buffering": True,
                         "supported_encodings": ["v1"]

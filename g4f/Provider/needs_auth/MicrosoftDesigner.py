@@ -66,7 +66,7 @@ async def create_images(prompt: str, access_token: str, user_agent: str, image_s
         'Authorization': f'Bearer {access_token}',
         "AudienceGroup": "Production",
         "Caller": "DesignerApp",
-        "ClientId": "b5c2664a-7e9b-4a7a-8c9a-cd2c52dcf621",
+        "ClientId": "app_LlGpXReQgckcGGUo2JrYvtJK",
         "SessionId": str(uuid.uuid4()),
         "UserId": get_random_hex(16),
         "ContainerId": "1e2843a7-2a98-4a6c-93f2-42002de5c478",
